@@ -38,4 +38,9 @@ public class GameManager : MonoBehaviour
         // Pool references
         BallPool = RefBallPool.GetComponent<GenericComponentPool<BallController>>();
     }
+
+    public void ChangeLevel(string sceneName)
+    {
+
+    }
 }

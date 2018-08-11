@@ -57,6 +57,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4156687171747668}
+  - component: {fileID: 114630012088592640}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -2384,25 +2385,21 @@ MonoBehaviour:
     angleError: 8
     areaError: 15
   dontDestroyMeshOnDelete: 0
-  m_selectedFaces: 2c0000002a000000
-  m_SelectedEdges:
-  - x: 150
-    y: 151
-  - x: 152
-    y: 150
-  - x: 151
-    y: 153
-  - x: 153
-    y: 152
-  - x: 142
-    y: 143
-  - x: 144
-    y: 142
-  - x: 143
-    y: 145
-  - x: 145
-    y: 144
-  m_selectedTriangles: 960000009700000098000000990000008e0000008f0000009000000091000000
+  m_selectedFaces: 
+  m_SelectedEdges: []
+  m_selectedTriangles: 
+--- !u!114 &114630012088592640
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1287245627828802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 429b37b8e5a43a744b02029c23d42bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetScene: 
 --- !u!114 &114840859071442130
 MonoBehaviour:
   m_ObjectHideFlags: 1
