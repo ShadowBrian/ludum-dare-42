@@ -12,6 +12,7 @@ public class TurretController : MonoBehaviour
     public float ShotForceRandomness;
 
     public float StickyChance;
+    public float BallSize;
 
     private float _shotTimer;
     private Animator _animator;
@@ -38,6 +39,7 @@ public class TurretController : MonoBehaviour
 
             var shot = GameManager.Instance.BallPool.GetPooledObject();
             shot.component.Sticky = sticky;
+            shot.component.Size = BallSize;
             shot.gameObject.transform.position = CannonAnchor.transform.position;
 
             var direction = CannonAnchor.transform.forward;
@@ -45,6 +47,7 @@ public class TurretController : MonoBehaviour
             var force = ShotForce + Random.Range(-ShotForceRandomness, ShotForceRandomness);
 
             shot.component.RigidBody.AddForce(direction.normalized * force, ForceMode.Impulse);
+            shot.component.Shoot();
         }
     }
 }

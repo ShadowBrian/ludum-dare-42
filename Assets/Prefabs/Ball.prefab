@@ -201,7 +201,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RigidBody: {fileID: 0}
   Sticky: 0
-  MakeSolidWhenStillTime: 2.5
+  Size: 0
+  MakeSolidWhenStillTime: 1
+  ExpandTime: 1
+  ExpandScale: 1.85
+  ExpandScaleRandomness: 0.3
+  SpawnTime: 0.5
 --- !u!135 &135796463348857990
 SphereCollider:
   m_ObjectHideFlags: 1

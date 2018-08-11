@@ -44,7 +44,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 127
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1189515929200364
 GameObject:
@@ -315,7 +315,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1209699653696018}
-  m_LocalRotation: {x: -0.2375229, y: -0.07368188, z: 0.28697336, w: 0.9250947}
+  m_LocalRotation: {x: 0.31320992, y: -0.7292103, z: 0.29807222, w: 0.53038186}
   m_LocalPosition: {x: 0.5, y: 0.749, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -324,7 +324,7 @@ Transform:
   - {fileID: 4304120852173704}
   m_Father: {fileID: 4279712755941118}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: -23.402, y: -17.283, z: 38.074}
+  m_LocalEulerAnglesHint: {x: 50.081, y: -113.872, z: -12.657001}
 --- !u!4 &4707042733987262
 Transform:
   m_ObjectHideFlags: 1
@@ -9100,10 +9100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CannonAnchor: {fileID: 4304120852173704}
-  ShotInterval: 0.5
+  ShotInterval: 0.35
   ShotSpread: 0.1
   ShotForce: 10
   ShotForceRandomness: 1
+  StickyChance: 0
+  BallSize: 1
 --- !u!114 &114903906428750804
 MonoBehaviour:
   m_ObjectHideFlags: 1

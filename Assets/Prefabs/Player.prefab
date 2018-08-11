@@ -158,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1430312212956454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.544, z: 0}
+  m_LocalPosition: {x: 0, y: -0.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4215452217735020}
@@ -266,7 +266,7 @@ MonoBehaviour:
   HookPrefab: {fileID: 1290742571930396, guid: d5fd9cef413cdaa46bd7547af5568912, type: 2}
   HookRaycastLayerMask:
     serializedVersion: 2
-    m_Bits: 2049
+    m_Bits: 3073
   HookMaxPullForce: 50
   HookMinPullForce: 18
   HookPullMaxDistance: 10
@@ -320,7 +320,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.05
+        value: 0.015
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -332,10 +332,10 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 1, g: 1, b: 1, a: 0.3372549}
+      key1: {r: 1, g: 1, b: 1, a: 0.2901961}
+      key2: {r: 0, g: 0, b: 0, a: 1}
+      key3: {r: 0, g: 0, b: 0, a: 1}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
@@ -350,8 +350,8 @@ LineRenderer:
       ctime7: 0
       atime0: 0
       atime1: 65535
-      atime2: 0
-      atime3: 0
+      atime2: 65535
+      atime3: 65535
       atime4: 0
       atime5: 0
       atime6: 0
@@ -372,7 +372,7 @@ CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1561299814345408}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 9942290fe74aaa64a98a737585275365, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
