@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Object pools
+    public GameObject RefBallPool;
+    public GenericComponentPool<BallController> BallPool;
+
+    // Global properties
     public float SensitivityX;
     public float SensitivityY;
 
@@ -29,5 +34,8 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         _instance = this;
+
+        // Pool references
+        BallPool = RefBallPool.GetComponent<GenericComponentPool<BallController>>();
     }
 }

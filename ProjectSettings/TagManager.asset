@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - HookableSurface
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - PostProcessing
   - Player
   - Obstacle
-  - 
+  - World
   - 
   - 
   - 
