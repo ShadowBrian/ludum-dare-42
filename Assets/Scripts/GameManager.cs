@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public float SensitivityX;
+    public float SensitivityY;
+
     void Awake()
     {
         // Setup singleton
