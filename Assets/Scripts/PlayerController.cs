@@ -41,15 +41,20 @@ public class PlayerController : MonoBehaviour
     {
         // Mouse look
 
-        float rotationX = CameraRoot.transform.localEulerAngles.y + Input.GetAxisRaw("Mouse X") * GameManager.Instance.SensitivityX;
+        if (GameManager.Instance.EnableMouseLook)
+        {
+            float rotationX = CameraRoot.transform.localEulerAngles.y + Input.GetAxisRaw("Mouse X") * GameManager.Instance.SensitivityX;
 
-        // Making clampf work properly
-        rotationX = Mathf.Clamp(rotationX <= 180 ? rotationX : -360 + rotationX, -180f, 180f);
+            // Making clampf work properly
+            rotationX = Mathf.Clamp(rotationX <= 180 ? rotationX : -360 + rotationX, -180f, 180f);
 
-        _rotationY += Input.GetAxisRaw("Mouse Y") * GameManager.Instance.SensitivityY;
-        _rotationY = Mathf.Clamp(_rotationY <= 180 ? _rotationY : -360 + _rotationY, -89f, 89f);
+            _rotationY += Input.GetAxisRaw("Mouse Y") * GameManager.Instance.SensitivityY;
+            _rotationY = Mathf.Clamp(_rotationY <= 180 ? _rotationY : -360 + _rotationY, -89f, 89f);
 
-        CameraRoot.transform.localEulerAngles = new Vector3(-_rotationY, rotationX, 0f);
+            CameraRoot.transform.localEulerAngles = new Vector3(-_rotationY, rotationX, 0f);
+        }
+
+        if (!GameManager.Instance.Alive) return;
 
         // Hook input
         if (Input.GetMouseButtonDown(0))
@@ -82,6 +87,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!GameManager.Instance.Alive) return;
+
         var dt = Time.fixedDeltaTime;
 
         // Pull the player towards the hook
@@ -103,5 +110,16 @@ public class PlayerController : MonoBehaviour
 
         HookLineRenderer.SetPosition(0, HookLineSource.position);
         HookLineRenderer.SetPosition(1, _hook.transform.position);
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.CompareTag("Obstacle"))
+        {
+            // Get the point of collision on the player's forward plane, make screen effect
+            GameManager.Instance.Death();
+            HookLineRenderer.enabled = false;
+            _hookActive = false;
+        }
     }
 }

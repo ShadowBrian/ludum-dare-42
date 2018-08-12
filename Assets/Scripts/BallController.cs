@@ -7,7 +7,6 @@ public class BallController : MonoBehaviour
     [HideInInspector]
     public Rigidbody RigidBody;
 
-    [HideInInspector]
     public bool Sticky;
 
     [HideInInspector]
@@ -46,8 +45,10 @@ public class BallController : MonoBehaviour
     {
         MakeSolid(false);
         _solidTimer = 0f;
+        RigidBody.mass = _initialMass;
 
         _spawning = false;
+        _spawnTimer = 0f;
         _expanding = false;
         _expandingTimer = 0f;
         MakeTargetScale();

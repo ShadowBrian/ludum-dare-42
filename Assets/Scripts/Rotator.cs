@@ -7,6 +7,8 @@ public class Rotator : MonoBehaviour
     public Vector3 RotationAxis;
     public float RotationSpeed;
 
+    public float RotationScale = 1f;
+
     private float t;
 
     void Awake()
@@ -20,6 +22,6 @@ public class Rotator : MonoBehaviour
 
         t += dt;
 
-        transform.localRotation = Quaternion.AngleAxis(t * RotationSpeed, RotationAxis);
+        transform.localRotation = Quaternion.AngleAxis(t * RotationSpeed * RotationScale, RotationAxis);
     }
 }

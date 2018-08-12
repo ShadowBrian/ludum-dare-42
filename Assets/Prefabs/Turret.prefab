@@ -6367,6 +6367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotationAxis: {x: 0, y: 1, z: 0}
   RotationSpeed: -80
+  RotationScale: 1
 --- !u!114 &114738762179873482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9100,12 +9101,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CannonAnchor: {fileID: 4304120852173704}
-  ShotInterval: 0.35
+  ShotInterval: 1
   ShotSpread: 0.1
   ShotForce: 10
   ShotForceRandomness: 1
   StickyChance: 0
   BallSize: 1
+  ActiveAtStart: 1
+  SpinUpSpeed: 3
+  MaxShots: -1
 --- !u!114 &114903906428750804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9119,6 +9123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RotationAxis: {x: 0, y: 1, z: 0}
   RotationSpeed: 120
+  RotationScale: 1
 --- !u!114 &114961838221215522
 MonoBehaviour:
   m_ObjectHideFlags: 1

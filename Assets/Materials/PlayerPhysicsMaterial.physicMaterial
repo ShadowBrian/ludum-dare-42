@@ -6,8 +6,8 @@ PhysicMaterial:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: PlayerPhysicsMaterial
-  dynamicFriction: 0.4
-  staticFriction: 0.4
+  dynamicFriction: 1
+  staticFriction: 1
   bounciness: 0.4
   frictionCombine: 0
   bounceCombine: 0

@@ -154,6 +154,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9697a38515dc8449b726ab4543c488a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RefBallPool: {fileID: 1453378359568626}
+  BallPool: {fileID: 114353370889779110}
   SensitivityX: 2
   SensitivityY: 2
+  EnableMouseLook: 1
+  Alive: 1
+  DeathTime: 1.5
+  DeathFadeTime: 0.75
+  SpawnFadeTime: 0.75
+  CurrentScene: 
+  LoadingScene: 0
+  TimeScale: 0
+  CrosshairUI: {fileID: 1409176162151238, guid: 5a4b3633e8bf8bb459ce4289f12c5d17,
+    type: 2}
+  FadeUI: {fileID: 1965015247357982, guid: 3a22a1af77059aa49ab64ade2b4c85b9, type: 2}
