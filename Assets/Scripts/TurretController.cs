@@ -28,6 +28,8 @@ public class TurretController : MonoBehaviour
     private List<Rotator> _rotators;
     private int _shotsLeft;
 
+    public bool Silent;
+
     void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -76,9 +78,12 @@ public class TurretController : MonoBehaviour
             _shotTimer = 0f;
             _shotsLeft -= 1;
 
-            var sfx = GameManager.Instance.TurretShootSFXPool.GetPooledObject();
-            sfx.transform.position = transform.position;
-            sfx.SetActive(true);
+            if (!Silent)
+            {
+                var sfx = GameManager.Instance.TurretShootSFXPool.GetPooledObject();
+                sfx.transform.position = transform.position;
+                sfx.SetActive(true);
+            }
 
             // Trigger animation
             _animator.SetTrigger("Shoot");
