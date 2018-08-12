@@ -42,6 +42,11 @@ public class PlayerController : MonoBehaviour
             HookMaxPullForce /= 2f;
             HookMinPullForce /= 2f;
         }
+
+        if (GameManager.Instance.GameEnded)
+        {
+            transform.Rotate(0f, 90f, 0f);
+        }
     }
 
     void Update()
@@ -142,6 +147,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (option == "Play")
                 {
+                    GameManager.Instance.GameEnded = false;
                     GameManager.Instance.MenuPlayPressed = true;
                 }
                 else if (option == "Exit")

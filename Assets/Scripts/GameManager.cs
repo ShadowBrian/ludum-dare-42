@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     public bool MenuPlayPressed;
     public bool MenuHookVisible;
     public Transform MenuHookPosition;
+    public bool GameEnded;
 
     private FadeUIController _fadeUIController;
     private float _fadeAmount;

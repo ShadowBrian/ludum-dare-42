@@ -6664,7 +6664,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1152184
+  m_Name: pb_Mesh-93788
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -7697,7 +7697,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1152182
+  m_Name: pb_Mesh-93786
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -11973,7 +11973,12 @@ Prefab:
     - target: {fileID: 114630012088592640, guid: 7bb4b043bd7bee54fa955a76450eadfe,
         type: 2}
       propertyPath: TargetScene
-      value: Level_04
+      value: menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 114630012088592640, guid: 7bb4b043bd7bee54fa955a76450eadfe,
+        type: 2}
+      propertyPath: EndsGame
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb4b043bd7bee54fa955a76450eadfe, type: 2}
