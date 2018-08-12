@@ -17,6 +17,13 @@ public class GameManager : MonoBehaviour
 
     // Object pools
     public BallPool BallPool;
+    public GenericObjectPool MenuPlaySFXPool;
+    public GenericObjectPool MenuSensSFXPool;
+    public GenericObjectPool TurretShootSFXPool;
+    public GenericObjectPool HookSFXPool;
+    public GenericObjectPool WallHitSFXPool;
+    public GenericObjectPool DeathSFXPool;
+    public GenericObjectPool DoorSFXPool;
 
     // Global properties
     public float SensitivityX;

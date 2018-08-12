@@ -76,6 +76,10 @@ public class TurretController : MonoBehaviour
             _shotTimer = 0f;
             _shotsLeft -= 1;
 
+            var sfx = GameManager.Instance.TurretShootSFXPool.GetPooledObject();
+            sfx.transform.position = transform.position;
+            sfx.SetActive(true);
+
             // Trigger animation
             _animator.SetTrigger("Shoot");
 

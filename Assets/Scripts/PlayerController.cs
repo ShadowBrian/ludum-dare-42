@@ -84,6 +84,9 @@ public class PlayerController : MonoBehaviour
                     _hook.transform.position = hit.point;
                     _hook.SetActive(true);
                     _hookActive = true;
+
+                    var sfx = GameManager.Instance.HookSFXPool.GetPooledObject();
+                    sfx.SetActive(true);
                 }
             }
         }
@@ -139,16 +142,28 @@ public class PlayerController : MonoBehaviour
                 {
                     GameManager.Instance.SensitivityX -= 0.1f;
                     GameManager.Instance.SensitivityY -= 0.1f;
+
+                    var sfx = GameManager.Instance.MenuSensSFXPool.GetPooledObject();
+                    sfx.transform.position = transform.position;
+                    sfx.SetActive(true);
                 }
                 else if (option == "SensitivityUp")
                 {
                     GameManager.Instance.SensitivityX += 0.1f;
                     GameManager.Instance.SensitivityY += 0.1f;
+
+                    var sfx = GameManager.Instance.MenuSensSFXPool.GetPooledObject();
+                    sfx.transform.position = transform.position;
+                    sfx.SetActive(true);
                 }
                 else if (option == "Play")
                 {
                     GameManager.Instance.GameEnded = false;
                     GameManager.Instance.MenuPlayPressed = true;
+
+                    var sfx = GameManager.Instance.MenuPlaySFXPool.GetPooledObject();
+                    sfx.transform.position = transform.position;
+                    sfx.SetActive(true);
                 }
                 else if (option == "Exit")
                 {
@@ -178,12 +193,22 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.Instance.ExitingLevel) return;
 
-        if (other.collider.CompareTag("Obstacle"))
+        if (other.collider.CompareTag("Obstacle") && GameManager.Instance.Alive)
         {
             // Get the point of collision on the player's forward plane, make screen effect
             GameManager.Instance.Death();
             HookLineRenderer.enabled = false;
             _hookActive = false;
+
+            var sfx = GameManager.Instance.DeathSFXPool.GetPooledObject();
+            sfx.transform.position = transform.position;
+            sfx.SetActive(true);
+        }
+        else
+        {
+            var sfx = GameManager.Instance.WallHitSFXPool.GetPooledObject();
+            sfx.transform.position = transform.position;
+            sfx.SetActive(true);
         }
     }
 }

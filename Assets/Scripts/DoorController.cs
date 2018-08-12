@@ -22,6 +22,10 @@ public class DoorController : MonoBehaviour
                 GameManager.Instance.GameEnded = true;
             }
 
+            var sfx = GameManager.Instance.DoorSFXPool.GetPooledObject();
+            sfx.transform.position = transform.position;
+            sfx.SetActive(true);
+
             FrameMR.material.color = Color.white;
             InnerMR.material.SetColor("_EffectColor", Color.white);
             StartCoroutine(GameManager.Instance.ReachExit(TargetScene));
