@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     public bool EnableMouseLook = true;
     public bool Alive = true;
+    public bool ExitingLevel;
 
     public float DeathTime;
     public float DeathFadeTime;
@@ -45,6 +46,12 @@ public class GameManager : MonoBehaviour
     public GameObject CrosshairUI;
     public GameObject FadeUI;
 
+    public float SceneExitTime;
+
+    public bool MenuPlayPressed;
+    public bool MenuHookVisible;
+    public Transform MenuHookPosition;
+
     private FadeUIController _fadeUIController;
     private float _fadeAmount;
     private float _fadeTarget;
@@ -54,6 +61,8 @@ public class GameManager : MonoBehaviour
     private float _fadeStartTimer;
     private float _fadeNextTime;
     private float _fadeNextTarget;
+
+    public bool InMenu;
 
     void Awake()
     {
@@ -74,6 +83,12 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        // Get sensitivity settings
+        var prefSensX = PlayerPrefs.GetFloat("SensitivityX");
+        var prefSensY = PlayerPrefs.GetFloat("SensitivityY");
+        SensitivityX = prefSensX > 0f ? prefSensX : 1f;
+        SensitivityY = prefSensY > 0f ? prefSensY : 1f;
+
         _initialFixedDeltaTime = Time.fixedDeltaTime;
 
         DontDestroyOnLoad(gameObject);
@@ -91,7 +106,15 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // Ending the game
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         if (LoadingScene) return;
+
+        InMenu = CurrentScene == "menu";
 
         // Custom dt because of slowdown effect on death anim
         var dt = Time.realtimeSinceStartup - _previousTime;
@@ -153,6 +176,14 @@ public class GameManager : MonoBehaviour
         StartFadeIn(DeathTime, DeathFadeTime, 1f);
     }
 
+    public IEnumerator ReachExit(string nextScene)
+    {
+        ExitingLevel = true;
+        Fade(SceneExitTime, 1f);
+        yield return new WaitForSeconds(SceneExitTime);
+        ChangeLevel(nextScene);
+    }
+
     public void ChangeLevel(string sceneName)
     {
         BallPool.ResetAll();
@@ -166,6 +197,7 @@ public class GameManager : MonoBehaviour
 
         Fade(SpawnFadeTime, 0f);
 
+        ExitingLevel = false;
         EnableMouseLook = true;
         Alive = true;
         Time.timeScale = 1f;

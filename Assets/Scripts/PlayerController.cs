@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     // Public properties
     public GameObject HookPrefab;
     public LayerMask HookRaycastLayerMask;
+    public LayerMask MenuLayerMask;
 
     public float HookMaxPullForce;
     public float HookMinPullForce;
@@ -35,6 +36,12 @@ public class PlayerController : MonoBehaviour
         HookLineRenderer.enabled = false;
 
         _rb = GetComponent<Rigidbody>();
+
+        if (GameManager.Instance.CurrentScene == "menu")
+        {
+            HookMaxPullForce /= 2f;
+            HookMinPullForce /= 2f;
+        }
     }
 
     void Update()
@@ -54,7 +61,12 @@ public class PlayerController : MonoBehaviour
             CameraRoot.transform.localEulerAngles = new Vector3(-_rotationY, rotationX, 0f);
         }
 
-        if (!GameManager.Instance.Alive) return;
+        if (GameManager.Instance.InMenu)
+        {
+            HandleMenu();
+        }
+
+        if (!GameManager.Instance.Alive || GameManager.Instance.ExitingLevel || GameManager.Instance.InMenu) return;
 
         // Hook input
         if (Input.GetMouseButtonDown(0))
@@ -87,7 +99,15 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!GameManager.Instance.Alive) return;
+        if (!GameManager.Instance.Alive || GameManager.Instance.ExitingLevel) return;
+
+        if (GameManager.Instance.MenuHookVisible && GameManager.Instance.CurrentScene == "menu")
+        {
+            _hookActive = true;
+            _hook.SetActive(true);
+            SetHookLineRendererPositions();
+            _hook.transform.position = GameManager.Instance.MenuHookPosition.position;
+        }
 
         var dt = Time.fixedDeltaTime;
 
@@ -99,6 +119,42 @@ public class PlayerController : MonoBehaviour
             var pullForce = Mathf.Clamp(distance, HookPullMinDistance, HookPullMaxDistance).Remap(HookPullMinDistance, HookPullMaxDistance, HookMinPullForce, HookMaxPullForce);
 
             _rb.AddForce(towardsHook * pullForce, ForceMode.Force);
+        }
+    }
+
+    private void HandleMenu()
+    {
+        if (Input.GetMouseButtonDown(0) && !GameManager.Instance.MenuPlayPressed)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, CameraRoot.transform.forward, out hit, 100f, MenuLayerMask))
+            {
+                var option = hit.collider.gameObject.tag;
+                if (option == "SensitivityDown")
+                {
+                    GameManager.Instance.SensitivityX -= 0.1f;
+                    GameManager.Instance.SensitivityY -= 0.1f;
+                }
+                else if (option == "SensitivityUp")
+                {
+                    GameManager.Instance.SensitivityX += 0.1f;
+                    GameManager.Instance.SensitivityY += 0.1f;
+                }
+                else if (option == "Play")
+                {
+                    GameManager.Instance.MenuPlayPressed = true;
+                }
+                else if (option == "Exit")
+                {
+                    Application.Quit();
+                }
+
+                GameManager.Instance.SensitivityX = Mathf.Clamp(GameManager.Instance.SensitivityX, 0.1f, 5f);
+                GameManager.Instance.SensitivityY = Mathf.Clamp(GameManager.Instance.SensitivityY, 0.1f, 5f);
+
+                PlayerPrefs.SetFloat("SensitivityX", GameManager.Instance.SensitivityX);
+                PlayerPrefs.SetFloat("SensitivityY", GameManager.Instance.SensitivityY);
+            }
         }
     }
 
@@ -114,6 +170,8 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+        if (GameManager.Instance.ExitingLevel) return;
+
         if (other.collider.CompareTag("Obstacle"))
         {
             // Get the point of collision on the player's forward plane, make screen effect

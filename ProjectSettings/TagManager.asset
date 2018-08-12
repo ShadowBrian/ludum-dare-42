@@ -7,6 +7,10 @@ TagManager:
   - HookableSurface
   - Obstacle
   - Door
+  - SensitivityDown
+  - SensitivityUp
+  - Play
+  - Exit
   layers:
   - Default
   - TransparentFX

@@ -91,7 +91,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 112000002, guid: c19447b0ef5af154886eac031f0df5ac,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6449,12 +6449,12 @@ Transform:
   - {fileID: 641397752}
   - {fileID: 2062124198}
   - {fileID: 1318078603}
-  - {fileID: 931063664}
+  - {fileID: 880413920}
   - {fileID: 666068855}
+  - {fileID: 931063664}
   - {fileID: 497522533}
   - {fileID: 2086188376}
   - {fileID: 865802130}
-  - {fileID: 880413920}
   - {fileID: 1644728402}
   - {fileID: 430054971}
   - {fileID: 267027670}
@@ -6664,7 +6664,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1284736
+  m_Name: pb_Mesh-1152184
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -7697,7 +7697,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1284734
+  m_Name: pb_Mesh-1152182
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -11970,6 +11970,11 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1274975376}
+    - target: {fileID: 114630012088592640, guid: 7bb4b043bd7bee54fa955a76450eadfe,
+        type: 2}
+      propertyPath: TargetScene
+      value: Level_04
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb4b043bd7bee54fa955a76450eadfe, type: 2}
   m_IsPrefabAsset: 0

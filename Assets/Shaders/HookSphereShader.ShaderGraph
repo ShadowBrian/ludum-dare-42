@@ -4,7 +4,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.ColorShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Value\": {\n        \"r\": 1.0,\n        \"g\": 1.0,\n        \"b\": 1.0,\n        \"a\": 1.0\n    },\n    \"m_Name\": \"Color\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"884f0526-f281-47cf-8578-b1b37f031430\"\n    },\n    \"m_OverrideReferenceName\": \"\",\n    \"m_ColorMode\": 0\n}"
+            "JSONnodeData": "{\n    \"m_Value\": {\n        \"r\": 1.0,\n        \"g\": 1.0,\n        \"b\": 1.0,\n        \"a\": 1.0\n    },\n    \"m_Name\": \"Color\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"884f0526-f281-47cf-8578-b1b37f031430\"\n    },\n    \"m_OverrideReferenceName\": \"_EffectColor\",\n    \"m_ColorMode\": 0\n}"
         },
         {
             "typeInfo": {

@@ -267,6 +267,9 @@ MonoBehaviour:
   HookRaycastLayerMask:
     serializedVersion: 2
     m_Bits: 3073
+  MenuLayerMask:
+    serializedVersion: 2
+    m_Bits: 32
   HookMaxPullForce: 50
   HookMinPullForce: 18
   HookPullMaxDistance: 10

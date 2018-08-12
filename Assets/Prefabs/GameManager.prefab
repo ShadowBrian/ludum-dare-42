@@ -159,6 +159,7 @@ MonoBehaviour:
   SensitivityY: 2
   EnableMouseLook: 1
   Alive: 1
+  ExitingLevel: 0
   DeathTime: 1.5
   DeathFadeTime: 0.75
   SpawnFadeTime: 0.75
@@ -168,3 +169,4 @@ MonoBehaviour:
   CrosshairUI: {fileID: 1409176162151238, guid: 5a4b3633e8bf8bb459ce4289f12c5d17,
     type: 2}
   FadeUI: {fileID: 1965015247357982, guid: 3a22a1af77059aa49ab64ade2b4c85b9, type: 2}
+  SceneExitTime: 1
